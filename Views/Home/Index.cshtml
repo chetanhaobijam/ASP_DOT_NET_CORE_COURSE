@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    // Layout = "~/Views/Shared/_Layout2.cshtml";
+    Layout = null;
+}
+
+<h1>Index Page</h1>
+
+<p>Hi, my name is @ViewData["data1"] @ViewBag.data2 @TempData["data3"].</p>
+
+<p>And the insects I hate are:
+    @{
+        if(TempData["insects"] != null)
+        {
+            foreach (var item in (List<string>)TempData["insects"])
+            {
+                <span>@item</span>
+            }
+        }
+        else
+        {
+            <span>No Data Found</span>
+        }
+    }
+</p>
