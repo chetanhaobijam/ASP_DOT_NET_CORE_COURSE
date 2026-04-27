@@ -1,25 +1,27 @@
 ﻿@{
-    ViewData["Title"] = "Index";
-    // Layout = "~/Views/Shared/_Layout2.cshtml";
-    Layout = null; 
+    ViewData["Title"] = "Home Page";
+    var students = ViewData["myStudents"] as List<StudentModel>;
 }
 
-<h1>Index Page</h1>
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
 
-<p>Hi, my name is @ViewData["data1"] @ViewBag.data2 @TempData["data3"].</p>
-
-<p>And the insects I hate are:
-    @{
-        if(TempData["insects"] != null)
-        {
-            foreach (var item in (List<string>)TempData["insects"])
-            {
-                <span>@item</span>
-            }
-        }
-        else
-        {
-            <span>No Data Found and it will never be found.</span>
-        }
+<table>
+    <tr>
+        <th>Roll No</th>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Standard</th>
+    </tr>
+    @foreach (var student in students)
+    {
+        <tr>
+            <td>@student.rollNo</td>
+            <td>@student.Name</td>
+            <td>@student.Gender</td>
+            <td>@student.Standard</td>
+        </tr>
     }
-</p>
+</table>
